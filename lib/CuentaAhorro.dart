@@ -1,34 +1,22 @@
 import 'package:dart_act_bancaria/Cuenta.dart';
 import 'package:dart_act_bancaria/Persona.dart';
 
-class Cuentaahorro extends Cuenta {
+class CuentaAhorro extends CuentaBancaria {
   double interes;
-  double saldoMinimo;
 
-  Cuentaahorro(
-      Persona titular, String numeroCuenta, this.interes, this.saldoMinimo)
-      : super(titular, numeroCuenta);
-
-  @override
-  void depositar(double monto) {
-    if (monto > 0) {
-      depositar(monto);
-    } else {
-      print('El monto a depositar debe ser mayor a 0');
-    }
-  }
+  CuentaAhorro(super.titular, super.numeroCuenta, super.saldo, this.interes);
 
   @override
   void retirar(double monto) {
-    if (getSaldo() - monto >= saldoMinimo) {
-      retirar(monto);
+    if ((saldo - monto) >= saldo || saldo - monto >= 0) {
+      saldo -= monto;
     } else {
-      print('El saldo mínimo no puede ser menor a $saldoMinimo');
+      print('El saldo mínimo no puede ser menor a $saldo');
     }
   }
 
   void calcularInteres() {
-    var intereses = getSaldo() * interes;
+    var intereses = getSaldo() * (interes / 100);
     depositar(intereses);
   }
 
@@ -38,11 +26,11 @@ class Cuentaahorro extends Cuenta {
 
   @override
   double getSaldo() {
-    return saldoMinimo;
+    return saldo;
   }
 
   @override
   String toString() {
-    return 'Cuenta de ahorro de ${titular.nombre} ${titular.apellido} con saldo de $saldoMinimo';
+    return 'Cuenta de ahorro de ${titular.nombre} ${titular.apellido} con saldo de $saldo';
   }
 }

@@ -1,12 +1,10 @@
 import 'package:dart_act_bancaria/Cuenta.dart';
 import 'package:dart_act_bancaria/Persona.dart';
 
-class Cuentacorriente extends Cuenta {
-  double saldo;
+class CuentaCorriente extends CuentaBancaria {
   static const double interes = 1.5;
 
-  Cuentacorriente(Persona titular, String numeroCuenta, this.saldo)
-      : super(titular, numeroCuenta);
+  CuentaCorriente(super.titular, super.numeroCuenta, super.saldo);
 
   @override
   void depositar(double monto) {
