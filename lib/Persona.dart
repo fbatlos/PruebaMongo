@@ -1,3 +1,4 @@
+//Clase del titular de la cuenta
 class Persona {
   String nombre;
   String apellido;
