@@ -1,5 +1,4 @@
 import 'package:dart_act_bancaria/Cuenta.dart';
-import 'package:dart_act_bancaria/Persona.dart';
 
 class CuentaCorriente extends CuentaBancaria {
   static const double interes = 1.5;

@@ -37,7 +37,7 @@ class Menu {
       throw ErrorAlta("El NIF debe ser valido");
     }
 
-    _clientes.add(Persona(nombre!, apellido!, nif!));
+    _clientes.add(Persona(nombre, apellido, nif));
     print("Cliente agregado correctamente");
     //Preguntar si es necesario hacer try-catch para manejar errores
   }
@@ -126,7 +126,7 @@ class Menu {
     var cuentaCorrienteCliente;
 
     try {
-      var cuentaCorrienteCliente =
+      cuentaCorrienteCliente =
           cuentaCorriente.firstWhere((element) => element.titular == titular);
     } catch (e) {
       print("No se encontró la cuenta corriente asociada a ese NIF");
@@ -179,7 +179,7 @@ class Menu {
     bool operar = true;
     var cuentaAhorroCliente;
     try {
-      var cuentaAhorroCliente =
+      cuentaAhorroCliente =
           cuentaAhorro.firstWhere((element) => element.titular == titular);
     } catch (e) {
       print("No se encontró la cuenta de ahorro asociada a ese NIF");
@@ -209,7 +209,7 @@ class Menu {
           cuentaAhorroCliente.retirar(monto);
 
           print("Saldo actual: ${cuentaAhorroCliente.getSaldo()}");
-          ;
+          {}
           break;
         case 3:
           print("Saldo: ${cuentaAhorroCliente.getSaldo()}");

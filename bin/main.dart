@@ -1,5 +1,4 @@
 import 'package:dart_act_bancaria/Menu.dart';
-import 'dart:io';
 
 void main(List<String> arguments) {
   var menu = Menu();
