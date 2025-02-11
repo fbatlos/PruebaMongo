@@ -159,7 +159,7 @@ class Menu {
           var monto = double.parse(stdin.readLineSync()!);
           cuentaCorrienteCliente.depositar(monto);
 
-          print("Saldo actual: ${cuentaCorrienteCliente.getSaldo()}");
+          print("${cuentaCorrienteCliente.toString()}");
 
           break;
         case 2:
@@ -167,13 +167,12 @@ class Menu {
           var monto = double.parse(stdin.readLineSync()!);
 
           cuentaCorrienteCliente.retirar(monto);
-          print("Se ha retirado $monto");
 
-          print("Saldo actual: ${cuentaCorrienteCliente.getSaldo()}");
+          print("${cuentaCorrienteCliente.toString()}");
 
           break;
         case 3:
-          print("Saldo: ${cuentaCorrienteCliente.getSaldo()}");
+          print("${cuentaCorrienteCliente.toString()}");
           break;
         case 4:
           operar = false;
@@ -211,15 +210,14 @@ class Menu {
           var monto = double.parse(stdin.readLineSync()!);
           cuentaAhorroCliente.depositar(monto);
 
-          print("Saldo actual: ${cuentaAhorroCliente.getSaldo()}");
+          print("${cuentaAhorroCliente.toString()}");
           break;
         case 2:
           print("Monto a retirar: ");
           var monto = double.parse(stdin.readLineSync()!);
           cuentaAhorroCliente.retirar(monto);
 
-          print("Saldo actual: ${cuentaAhorroCliente.getSaldo()}");
-          {}
+          print("${cuentaAhorroCliente.toString()}");
           break;
         case 3:
           print("Saldo: ${cuentaAhorroCliente.getSaldo()}");
@@ -228,7 +226,7 @@ class Menu {
           print("Interés: ${cuentaAhorroCliente.interes}");
           cuentaAhorroCliente.calcularInteres();
 
-          print("Saldo actual: ${cuentaAhorroCliente.getSaldo()}");
+          print("${cuentaAhorroCliente.toString()}");
           break;
         case 5:
           print("Nuevo interés: ");
@@ -240,6 +238,7 @@ class Menu {
           break;
         default:
           print("Opción no válida");
+          operar = false;
       }
     }
   }
